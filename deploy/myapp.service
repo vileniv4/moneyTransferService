@@ -1,0 +1,13 @@
+[Unit]
+Description=Money Transfer Service
+After=docker.service
+Requires=docker.service
+
+[Service]
+Type=simple
+Restart=always
+ExecStart=/usr/bin/docker run --rm --name moneyTransferService -p 8080:8080 moneytransferservice:latest
+ExecStop=/usr/bin/docker stop moneyTransferService
+
+[Install]
+WantedBy=multi-user.target

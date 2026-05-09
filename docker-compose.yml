@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  app:
+    build: .
+    ports:
+      - "5500:5500"
+    restart: unless-stopped
+    container_name: moneyTransferService
+    volumes:
+      - ./logs:/usr/local/app/logs
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod

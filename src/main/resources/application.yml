@@ -1,0 +1,25 @@
+server:
+  port: 5500
+
+management:
+endpoints:
+  web:
+    exposure:
+      include: health,info,prometheus
+endpoint:
+  prometheus:
+    enabled: true
+metrics:
+  export:
+    prometheus:
+      enabled: true
+logging:
+  file:
+    name: logs/app.log
+  pattern:
+    file: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+
+spring:
+  output:
+    ansi:
+      enabled: ALWAYS
